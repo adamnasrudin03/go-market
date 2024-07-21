@@ -74,7 +74,10 @@ func SetupDbConnection(cfg *configs.Configs, logger *logrus.Logger) *gorm.DB {
 		//auto migration entity db
 		db.AutoMigrate(
 			&models.User{},
+			&models.Warehouse{},
 			&models.Product{},
+			&models.Shop{},
+			&models.Order{},
 		)
 	}
 

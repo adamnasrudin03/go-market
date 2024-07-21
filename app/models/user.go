@@ -15,6 +15,7 @@ type User struct {
 	Phone    string `json:"phone" gorm:"not null;uniqueIndex"`
 	Email    string `json:"email" gorm:"not null;uniqueIndex"`
 	Password string `json:"password,omitempty" gorm:"not null"`
+	Address  string `json:"address" gorm:"not null"`
 	DefaultModel
 }
 
