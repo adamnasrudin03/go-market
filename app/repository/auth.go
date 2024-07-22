@@ -75,7 +75,7 @@ func (r *AuthRepo) CheckIsDuplicate(ctx context.Context, input dto.UserDetailReq
 	}
 
 	var user *models.User
-	req := dto.UserDetailReq{Columns: "id", NotID: input.NotID, Email: input.Email}
+	req := dto.UserDetailReq{Columns: "id", NotID: input.NotID}
 	if len(input.Email) > 0 {
 		req.Email = input.Email
 		user, _ = r.GetDetail(ctx, req)

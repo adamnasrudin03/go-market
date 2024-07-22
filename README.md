@@ -3,6 +3,10 @@
 
 ![Case Study](case.png)
 
+## Api Doc
+[Postman Documentations](https://documenter.getpostman.com/view/10619265/2sA3kUHi2c)
+
+
 ## Development Guide
 
 ### Collection Using Postman
