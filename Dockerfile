@@ -29,12 +29,6 @@ WORKDIR /app
 # Copy the built binary from the builder stage
 COPY --from=builder /app/go-market .
 
-# Switch to the application user to run the application
-# This is a recommended security practice to run the application as a non-root user
-# By default, the application is run as the user "app" defined in the Dockerfile
-# This is a good practice to avoid potential security risks
-USER    app
-
 # Expose port 8000
 EXPOSE 8000
 
