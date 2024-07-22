@@ -19,6 +19,7 @@ var (
 func GetInstance() *Configs {
 	lock.Lock()
 	defer lock.Unlock()
+	LoadEnv()
 
 	cfg = &Configs{
 		App: AppConfig{
@@ -56,7 +57,7 @@ func GetInstance() *Configs {
 
 func LoadEnv() {
 	if err := godotenv.Load(); err != nil {
-		log.Fatalln("Failed to load env file")
+		log.Printf("Configs-LoadEnv: Failed to load env file")
 	}
 }
 
