@@ -57,7 +57,7 @@ func GetInstance() *Configs {
 
 func LoadEnv() {
 	if err := godotenv.Load(); err != nil {
-		log.Printf("Configs-LoadEnv: Failed to load env file")
+		log.Println("Configs-LoadEnv: Failed to load env file")
 	}
 }
 

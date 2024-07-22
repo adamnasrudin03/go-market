@@ -29,7 +29,7 @@ type ProductServiceTestSuite struct {
 
 func (srv *ProductServiceTestSuite) SetupTest() {
 	var (
-		cfg    = configs.GetInstance()
+		cfg    = &configs.Configs{}
 		logger = driver.Logger(cfg)
 	)
 	srv.product = models.Product{

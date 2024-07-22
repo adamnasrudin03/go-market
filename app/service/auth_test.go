@@ -24,7 +24,7 @@ type AuthServiceTestSuite struct {
 
 func (srv *AuthServiceTestSuite) SetupTest() {
 	var (
-		cfg    = configs.GetInstance()
+		cfg    = &configs.Configs{}
 		logger = driver.Logger(cfg)
 	)
 	srv.ctx = context.Background()

@@ -2,7 +2,6 @@ package main
 
 import (
 	"fmt"
-	"log"
 	"time"
 
 	help "github.com/adamnasrudin03/go-helpers"
@@ -12,7 +11,6 @@ import (
 	"github.com/adamnasrudin03/go-market/pkg/database"
 	"github.com/adamnasrudin03/go-market/pkg/driver"
 	"github.com/go-playground/validator/v10"
-	"github.com/joho/godotenv"
 	"gorm.io/gorm"
 )
 
@@ -21,10 +19,6 @@ func init() {
 	loc, _ := time.LoadLocation(help.AsiaJakarta)
 	time.Local = loc
 
-	// load env
-	if err := godotenv.Load(); err != nil {
-		log.Fatalln("Failed to load env file")
-	}
 }
 
 func main() {
