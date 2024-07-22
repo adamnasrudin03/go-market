@@ -30,6 +30,7 @@ func NewRoutes(h controller.Controllers) routes {
 
 	v1 := r.router.Group("/v1")
 	r.authRouter(v1, h.Auth)
+	r.productRouter(v1, h.Product)
 
 	r.router.NoRoute(func(c *gin.Context) {
 		err = response_mapper.ErrRouteNotFound()

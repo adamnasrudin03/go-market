@@ -2,5 +2,6 @@ package controller
 
 // Controllers all Controller object injected here
 type Controllers struct {
-	Auth AuthController
+	Auth    AuthController
+	Product ProductController
 }

@@ -2,7 +2,7 @@ package models
 
 import "testing"
 
-func TestKeyCacheTeamMemberDetail(t *testing.T) {
+func TestKeyCacheProductDetail(t *testing.T) {
 	type args struct {
 		id uint64
 	}
@@ -16,13 +16,13 @@ func TestKeyCacheTeamMemberDetail(t *testing.T) {
 			args: args{
 				id: 1,
 			},
-			want: "team_member_detail_1",
+			want: "product_detail_1",
 		},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			if got := KeyCacheTeamMemberDetail(tt.args.id); got != tt.want {
-				t.Errorf("KeyCacheTeamMemberDetail() = %v, want %v", got, tt.want)
+			if got := KeyCacheProductDetail(tt.args.id); got != tt.want {
+				t.Errorf("KeyCacheProductDetail() = %v, want %v", got, tt.want)
 			}
 		})
 	}

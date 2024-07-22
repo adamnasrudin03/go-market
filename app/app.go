@@ -13,19 +13,22 @@ import (
 
 func WiringRepository(db *gorm.DB, cache *driver.RedisClient, cfg *configs.Configs, logger *logrus.Logger) *repository.Repositories {
 	return &repository.Repositories{
-		Auth:  repository.NewAuthRepository(db, cfg, logger),
-		Cache: repository.NewCacheRepository(*cache, cfg, logger),
+		Auth:    repository.NewAuthRepository(db, cfg, logger),
+		Cache:   repository.NewCacheRepository(*cache, cfg, logger),
+		Product: repository.NewProductRepository(db, cfg, logger),
 	}
 }
 
 func WiringService(repo *repository.Repositories, cfg *configs.Configs, logger *logrus.Logger) *service.Services {
 	return &service.Services{
-		Auth: service.NewAuthService(service.AuthSrv{Repo: repo.Auth, Cfg: cfg, Logger: logger}),
+		Auth:    service.NewAuthService(service.AuthSrv{Repo: repo.Auth, Cfg: cfg, Logger: logger}),
+		Product: service.NewProductService(service.ProductSrv{Repo: repo.Product, RepoCache: repo.Cache, Cfg: cfg, Logger: logger}),
 	}
 }
 
 func WiringController(srv *service.Services, cfg *configs.Configs, logger *logrus.Logger, validator *validator.Validate) *controller.Controllers {
 	return &controller.Controllers{
-		Auth: controller.NewAuthController(srv.Auth, logger, validator),
+		Auth:    controller.NewAuthController(srv.Auth, logger, validator),
+		Product: controller.NewProductController(srv.Product, logger, validator),
 	}
 }

@@ -5,10 +5,6 @@ type LoginReq struct {
 	Password string `json:"password" validate:"required,min=4"`
 }
 
-type LoginRes struct {
-	Token string `json:"token"`
-}
-
 type RegisterReq struct {
 	Name     string `json:"name" validate:"required"`
 	Email    string `json:"email" validate:"required,email"`

@@ -2,5 +2,6 @@ package service
 
 // Services all service object injected here
 type Services struct {
-	Auth AuthService
+	Auth    AuthService
+	Product ProductService
 }
